@@ -1,0 +1,99 @@
+.SideNav {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 3.5rem;
+    z-index: 1000;
+    height: calc(100vh - 3rem);
+    background-color: #f7f7f7;
+    border-right: 1px solid #ececec;
+}
+
+.card-columns {
+    -webkit-column-gap: 1rem;
+    -moz-column-gap: 1rem;
+    grid-column-gap: 1rem;
+    column-gap: 1rem;
+}
+
+@media (min-width: 750px) {
+    .card-columns {
+        -webkit-column-count: 4;
+        column-count: 4;
+    }
+}
+
+@media (min-width: 1000px) {
+    .card-columns {
+        -webkit-column-count: 5;
+        column-count: 5;
+    }
+}
+
+
+.card-title {
+    margin-bottom: 0;
+}
+
+.h5.card-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    -webkit-line-clamp: 2;
+    max-height: 2.2rem;
+    /* height: 2.4rem; */ /*! TODO */
+}
+
+.h5.card-title a {
+    color: #343a40;
+}
+
+.h5, h5 {
+    font-size: 1rem;
+}
+
+.card-deck {
+    align-items: center;
+}
+
+
+.card-deck .card {
+    /* min-width: 13rem; */
+    min-width: 15rem;
+    max-width: 15rem;
+    min-height: 14rem;
+    max-height: 14rem;
+    margin-bottom: 1rem;
+    margin-left: 0;
+    margin-right: 1rem;
+}
+
+.card-img-top {
+    /* width:  */
+    /* height: 100%; */
+    /* overflow: hidden; */
+    height: 9rem;
+    object-fit: contain;
+}
+
+.card-body {
+    padding: 0.5rem;
+    /* padding-top: 0.75rem;
+    padding-bottom: 0.75rem; */
+}
+
+/* .card-columns .card {
+    margin-bottom: 1.25rem;
+} */
+
+.fig {
+
+    font-size: 10pt;
+    font-family: Monospace;
+    white-space: pre;
+}
+
+#player {
+    /* width: 100%; */
+    width: 55rem;
+    height: 31rem;
+}
