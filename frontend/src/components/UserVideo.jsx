@@ -3,7 +3,7 @@ import axios from "axios";
 import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
 
-import VideoCardGroupBase from "./VideoCardGroupBase";
+import ProjectCardGroupBase from "./ProjectCardGroupBase";
 
 export default class UserVideo extends React.Component {
   constructor(props) {
@@ -42,7 +42,7 @@ export default class UserVideo extends React.Component {
             <Nav.Link as={Link} href={`/channel/${username}/about`} to={`/channel/${username}/about`}>About</Nav.Link>
           </Nav.Item>
         </Nav>
-        <VideoCardGroupBase {...this.state} />
+        <ProjectCardGroupBase {...this.state} />
       </div>
     );
   }

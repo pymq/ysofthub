@@ -8,6 +8,8 @@ import FormControl from "react-bootstrap/FormControl";
 import { Link } from "react-router-dom";
 import NavItem from "react-bootstrap/NavItem";
 
+import logo from "./Logo.png";
+
 export default class Header extends React.Component {
   constructor(props) {
     super(props);
@@ -26,22 +28,20 @@ export default class Header extends React.Component {
     }
   }
 
+//TODO Рабочий поиск
+//TODO Выход из системы
+
   render() {
     return (
       <div>
         <Navbar bg="dark" variant="dark" fixed="top">
           {/* <Navbar bg="dark" variant="dark" sticky="top"> */}
           {/* <Navbar.Toggle aria-controls="basic-navbar-nav" label="lolo" className="navbar-toggler-icon"> lala</Navbar.Toggle> */}
-          <Navbar.Brand className="navbar-toggler-icon" href="#" />
-          <Navbar.Brand as={Link} href="/" to="/">Otioki</Navbar.Brand>
           <Nav className="mr-auto">
-            <NavItem as={Link} href="/" to="/">
-              Home
-        </NavItem>
+          <Navbar.Brand as={Link} href="/" to="/"><img width={100} src={logo}/></Navbar.Brand>
           </Nav>
-          <Button as={Link} href="/upload" to="/upload" variant="outline-info" className="mr-sm-3">
-            Upload
-      </Button>
+
+
           <Form inline>
             <FormControl type="text" placeholder="Search" className="mr-sm-3" />
             <Button variant="outline-info">Search</Button>

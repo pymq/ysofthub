@@ -11,7 +11,7 @@ import VideoUpload from "./components/VideoUpload";
 import Error404 from "./components/Error404";
 import Header from "./components/Header";
 import VideoPage from "./components/VideoPage";
-import VideoCardGroupAll from "./components/VideoCardGroupAll";
+import ProjectCardGroupAll from "./components/ProjectCardGroupAll";
 import UserVideo from "./components/UserVideo";
 import UserAbout from "./components/UserAbout";
 import SignIn from "./components/SignIn";
@@ -24,7 +24,7 @@ const App = () => (
       {/* <Sidebar /> */}
       <Container>
         <Switch>
-          <Route exact path="/" component={VideoCardGroupAll} />
+          <Route exact path="/" component={ProjectCardGroupAll} />
           <Route exact path="/content" component={Content} />
           <Route exact path="/upload" component={VideoUpload} />
           <Route exact path="/signin" component={SignIn} />

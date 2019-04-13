@@ -4,8 +4,10 @@ import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+import { Redirect } from 'react-router';
 
 import Card from "react-bootstrap/Card";
+import Nav from "./Header";
 
 class SignUp extends React.Component {
   constructor() {
@@ -13,9 +15,13 @@ class SignUp extends React.Component {
     this.state = {
       username: "",
       email: "",
-      password: ""
+      password: "",
+      result: ""
     };
   }
+
+  //TODO Сделать нормальный редирект
+  //TODO Сделать сообщение об ошибке
 
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -23,7 +29,7 @@ class SignUp extends React.Component {
 
   onSubmit = e => {
     e.preventDefault();
-    const { username, email, password } = this.state;
+    const { username, email, password} = this.state;
 
     let formData = new FormData();
     formData.append("username", username);
@@ -37,16 +43,27 @@ class SignUp extends React.Component {
         localStorage.setItem("username", result.data.username);
         localStorage.setItem("email", result.data.email);
         localStorage.setItem("id", result.data.id); //? REMOVE
+        this.setState({result:true});
       } else {
         alert("Не удалось зарегистрироваться"); //! TODO
+        console.log("result");
+        this.setState({result:false});
       }
     });
   };
 
   render() {
-    const { username, email, password } = this.state;
+    const { username, email, password,result } = this.state;
+    if(result === true){
+      return (<Redirect to="/" />);
+    }
+
     return (
       <div className="mt-5 pt-4 row justify-content-center">
+        {result === false ? (
+            //TODO Так не работает
+            <div>Произошла ОШИБКА!!</div>
+        ):""}
         <Card style={{ width: "30rem" }}>
           <Card.Body>
             <Card.Title as="h3" className="mb-2">
