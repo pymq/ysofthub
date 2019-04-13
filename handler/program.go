@@ -27,7 +27,7 @@ func (h *Handler) GetProgramDocumentation(c echo.Context) (err error) {
 		return c.JSON(http.StatusNotFound, utils.NotFound())
 	}
 	reader := bytes.NewReader(program.Documentation)
-	c.Response().Header().Set(echo.HeaderContentDisposition, fmt.Sprintf("%s; filename=%q", "inline", program.DocumentationName))
+	c.Response().Header().Set(echo.HeaderContentDisposition, fmt.Sprintf("%s; filename=%q", "attachment", program.DocumentationName))
 	return c.Stream(http.StatusOK, program.DocumentationMime, reader)
 }
 
@@ -39,7 +39,7 @@ func (h *Handler) GetProgramProgram(c echo.Context) (err error) {
 		return c.JSON(http.StatusNotFound, utils.NotFound())
 	}
 	reader := bytes.NewReader(program.Program)
-	c.Response().Header().Set(echo.HeaderContentDisposition, fmt.Sprintf("%s; filename=%q", "inline", program.ProgramName))
+	c.Response().Header().Set(echo.HeaderContentDisposition, fmt.Sprintf("%s; filename=%q", "attachment", program.ProgramName))
 	return c.Stream(http.StatusOK, program.ProgramMime, reader)
 }
 
