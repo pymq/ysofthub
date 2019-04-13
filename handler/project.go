@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"github.com/labstack/echo/v4"
 	"github.com/pymq/video-dump/model"
+	"github.com/pymq/video-dump/utils"
 	"io"
 	"net/http"
 )
@@ -24,7 +25,10 @@ func (h *Handler) GetProjects(c echo.Context) (err error) {
 func (h *Handler) GetProjectById(c echo.Context) (err error) {
 	id := c.Param("id")
 	var project model.Project
-	h.DB.Find(&project, id)
+	result := h.DB.Find(&project, id)
+	if result.RowsAffected == 0 {
+		return c.JSON(http.StatusNotFound, utils.NotFound())
+	}
 
 	return c.JSON(http.StatusOK, project)
 }
@@ -32,7 +36,10 @@ func (h *Handler) GetProjectById(c echo.Context) (err error) {
 func (h *Handler) GetProjectLogo(c echo.Context) (err error) {
 	id := c.Param("id")
 	var project model.Project
-	h.DB.First(&project, id)
+	result := h.DB.First(&project, id)
+	if result.RowsAffected == 0 {
+		return c.JSON(http.StatusNotFound, utils.NotFound())
+	}
 	reader := bytes.NewReader(project.Logo)
 	return c.Stream(http.StatusOK, "image/png", reader)
 }

@@ -3,6 +3,7 @@ package handler
 import (
 	"github.com/labstack/echo/v4"
 	"github.com/pymq/video-dump/model"
+	"github.com/pymq/video-dump/utils"
 	"log"
 	"net/http"
 	"strconv"
@@ -19,7 +20,10 @@ func (h *Handler) GetNewsByNewsId(c echo.Context) (err error) {
 	//projectId := c.Param("projectId")
 	newsId := c.Param("newsId")
 	var news model.News
-	h.DB.Find(&news, newsId)
+	result := h.DB.Find(&news, newsId)
+	if result.RowsAffected == 0 {
+		return c.JSON(http.StatusNotFound, utils.NotFound())
+	}
 	return c.JSON(http.StatusOK, news)
 }
 
@@ -34,9 +38,9 @@ func (h *Handler) PostNews(c echo.Context) (err error) {
 	project := model.Project{AuthorID: uint(userId)}
 	project.ID = uint(projectId)
 
-	result := h.DB.Where(&project)
+	result := h.DB.Where(&project).First(&project)
 	if result.RowsAffected == 0 {
-		return &echo.HTTPError{Code: http.StatusNotFound, Message: "Unknown projectId or access denied"}
+		return c.JSON(http.StatusBadRequest, utils.ErrorMessage("Unknown projectId or access denied"))
 	}
 
 	// Read form fields
@@ -45,7 +49,7 @@ func (h *Handler) PostNews(c echo.Context) (err error) {
 
 	// Save to database
 	news := model.News{
-		 Title: title, ProjectID: uint(projectId), Content:content,
+		Title: title, ProjectID: uint(projectId), Content: content,
 	}
 	h.DB.Create(&news)
 

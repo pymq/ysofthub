@@ -3,6 +3,7 @@ package handler
 import (
 	"github.com/labstack/echo/v4"
 	"github.com/pymq/video-dump/model"
+	"github.com/pymq/video-dump/utils"
 	"log"
 	"net/http"
 )
@@ -14,7 +15,7 @@ func (h *Handler) Signup(c echo.Context) (err error) {
 
 	// Validate
 	if len(email) < 5 || len(password) < 6 || len(username) < 4 {
-		return &echo.HTTPError{Code: http.StatusBadRequest, Message: "invalid email, username or password"}
+		return c.JSON(http.StatusBadRequest, utils.ErrorMessage("invalid email, username or password"))
 	}
 
 	// Save user
@@ -26,7 +27,7 @@ func (h *Handler) Signup(c echo.Context) (err error) {
 	user.Password = hash
 	result := h.DB.Create(&user)
 	if result.RowsAffected == 0 {
-		return &echo.HTTPError{Code: http.StatusInternalServerError, Message: "Username or email already exists"}
+		return c.JSON(http.StatusBadRequest, utils.ErrorMessage("Username or email already exists"))
 	}
 
 	// Generate encoded token
@@ -48,10 +49,10 @@ func (h *Handler) Login(c echo.Context) (err error) {
 	result := h.DB.Where(&model.User{Username: username}).First(&user)
 
 	if result.RowsAffected == 0 {
-		return &echo.HTTPError{Code: http.StatusUnauthorized, Message: "invalid username or password"}
+		return c.JSON(http.StatusBadRequest, utils.ErrorMessage("invalid username or password"))
 	}
 	if !user.CheckPassword(password) {
-		return &echo.HTTPError{Code: http.StatusUnauthorized, Message: "invalid username or password"}
+		return c.JSON(http.StatusBadRequest, utils.ErrorMessage("invalid username or password"))
 	}
 
 	// Generate encoded token
