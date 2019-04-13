@@ -9,6 +9,6 @@ type Project struct {
 	Platform    string `gorm:"not null" json:"platform"`
 	Contacts    string `gorm:"not null" json:"contacts"`
 	Logo        []byte `json:"-"`
-	Author      User   `json:"author" gorm:"foreignkey:AuthorID"`
-	AuthorID    uint   `json:"-"`
+	Author      User   `json:"-" gorm:"foreignkey:AuthorID"`
+	AuthorID    uint   `json:"author_id""`
 }

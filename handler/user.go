@@ -2,8 +2,8 @@ package handler
 
 import (
 	"github.com/labstack/echo/v4"
-	"github.com/pymq/video-dump/model"
-	"github.com/pymq/video-dump/utils"
+	"github.com/pymq/gatox/model"
+	"github.com/pymq/gatox/utils"
 	"log"
 	"net/http"
 )

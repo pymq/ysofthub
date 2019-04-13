@@ -6,5 +6,5 @@ type News struct {
 	Content   string  `gorm:"not null" json:"content"`
 	//Picture   []byte  `json:"-"` // TODO
 	Project   Project `json:"-" gorm:"foreignkey:ProjectID"`
-	ProjectID uint    `json:"-"`
+	ProjectID uint    `json:"project_id"`
 }

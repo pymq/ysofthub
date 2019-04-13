@@ -2,7 +2,7 @@ package handler
 
 //import (
 //	"github.com/labstack/echo/v4"
-//	"github.com/pymq/video-dump/model"
+//	"github.com/pymq/gatox/model"
 //	"log"
 //	"net/http"
 //	"strconv"
