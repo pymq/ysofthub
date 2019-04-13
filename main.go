@@ -83,9 +83,9 @@ func main() {
 	e.GET("/api/projects/:projectId/programs/:programId/program", h.GetProgramProgram)
 
 	// Issue
-	//e.GET("/api/projects/:projectId/issues/", h.GetNewsByProjectId)
-	//e.POST("/api/projects/:projectId/issues/", h.PostNews, middleware.JWT([]byte(viper.GetString("secret_key"))))
-	//e.GET("/api/projects/:projectId/issues/:newsId", h.GetNewsByNewsId)
+	e.GET("/api/projects/:projectId/issues/", h.GetIssuesByProjectId)
+	e.POST("/api/projects/:projectId/issues/", h.CreateIssue, middleware.JWT([]byte(viper.GetString("secret_key"))))
+	e.GET("/api/projects/:projectId/issues/:issueId", h.GetIssueByIssueId)
 
 	// Start
 	if viper.GetBool("production") {
