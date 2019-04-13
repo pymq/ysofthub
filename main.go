@@ -87,6 +87,10 @@ func main() {
 	e.POST("/api/projects/:projectId/issues/", h.CreateIssue, middleware.JWT([]byte(viper.GetString("secret_key"))))
 	e.GET("/api/projects/:projectId/issues/:issueId", h.GetIssueByIssueId)
 
+	// Issue comments
+	e.GET("/api/projects/:projectId/issues/:issueId/comments/", h.GetIssueCommentsByIssueId)
+	e.POST("/api/projects/:projectId/issues/:issueId/comments/", h.CreateIssueComment, middleware.JWT([]byte(viper.GetString("secret_key"))))
+
 	// Start
 	if viper.GetBool("production") {
 		go func() {
