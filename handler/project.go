@@ -64,7 +64,7 @@ func (h *Handler) CreateProject(c echo.Context) (err error) {
 	var logo bytes.Buffer
 	fileType := file.Header.Get("Content-Type")
 	if fileType != "image/png" {
-		return &echo.HTTPError{Code: http.StatusNotAcceptable, Message: "Content-Type must be image/png, not "+fileType}
+		return &echo.HTTPError{Code: http.StatusUnsupportedMediaType, Message: "logo Content-Type must be image/png, not "+fileType}
 	}
 	src, err := file.Open()
 	if err != nil {

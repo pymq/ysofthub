@@ -76,6 +76,12 @@ func main() {
 	e.POST("/api/projects/:projectId/news/", h.PostNews, middleware.JWT([]byte(viper.GetString("secret_key"))))
 	e.GET("/api/projects/:projectId/news/:newsId", h.GetNewsByNewsId)
 
+	// Program
+	e.GET("/api/projects/:projectId/programs/", h.GetProgramsByProjectId)
+	e.POST("/api/projects/:projectId/programs/", h.CreateProgram, middleware.JWT([]byte(viper.GetString("secret_key"))))
+	e.GET("/api/projects/:projectId/programs/:programId/documentation", h.GetProgramDocumentation)
+	e.GET("/api/projects/:projectId/programs/:programId/program", h.GetProgramProgram)
+
 	// Issue
 	//e.GET("/api/projects/:projectId/issues/", h.GetNewsByProjectId)
 	//e.POST("/api/projects/:projectId/issues/", h.PostNews, middleware.JWT([]byte(viper.GetString("secret_key"))))
