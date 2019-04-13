@@ -69,7 +69,7 @@ func main() {
 	e.GET("/api/projects/", h.GetProjects)
 	e.POST("/api/projects/", h.CreateProject, middleware.JWT([]byte(viper.GetString("secret_key"))))
 	e.GET("/api/projects/:id", h.GetProjectById)
-	e.GET("/api/projects/:id/logo.jpg", h.GetProjectLogo)
+	e.GET("/api/projects/:id/logo.png", h.GetProjectLogo)
 
 	// News
 	e.GET("/api/projects/:projectId/news/", h.GetNewsByProjectId)

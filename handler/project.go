@@ -34,7 +34,7 @@ func (h *Handler) GetProjectLogo(c echo.Context) (err error) {
 	var project model.Project
 	h.DB.First(&project, id)
 	reader := bytes.NewReader(project.Logo)
-	return c.Stream(http.StatusOK, "image/jpeg", reader)
+	return c.Stream(http.StatusOK, "image/png", reader)
 }
 
 func (h *Handler) CreateProject(c echo.Context) (err error) {
@@ -49,30 +49,27 @@ func (h *Handler) CreateProject(c echo.Context) (err error) {
 	contacts := c.FormValue("contacts")
 
 	// Multipart form
-	form, err := c.MultipartForm()
+	file, err := c.FormFile("logo_file")
 	if err != nil {
 		return err
 	}
-	files := form.File["logo_file"]
 
 	var logo bytes.Buffer
-	// TODO limit to 1 file
-	for _, file := range files {
-		fileType := file.Header.Get("Content-Type")
-		if fileType != "image/jpeg" {
-			return &echo.HTTPError{Code: http.StatusNotAcceptable, Message: "Content-Type must be image/jpeg, not "+fileType}
-		}
-		src, err := file.Open()
-		if err != nil {
-			return err
-		}
-		defer src.Close()
-
-		// Copy
-		if _, err = io.Copy(&logo, src); err != nil {
-			return err
-		}
+	fileType := file.Header.Get("Content-Type")
+	if fileType != "image/png" {
+		return &echo.HTTPError{Code: http.StatusNotAcceptable, Message: "Content-Type must be image/png, not "+fileType}
 	}
+	src, err := file.Open()
+	if err != nil {
+		return err
+	}
+	defer src.Close()
+
+	// Copy
+	if _, err = io.Copy(&logo, src); err != nil {
+		return err
+	}
+
 	// Save to database
 	project := model.Project{
 		Description: description, Title: title, Goal: goal, Team: team,
