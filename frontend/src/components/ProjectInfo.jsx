@@ -1,7 +1,8 @@
 import React from "react";
 import Table from "react-bootstrap/Table"
-import CorrectIcon from "./correct.svg"
 import PlatformTableRow from "./PlatformTableRow";
+
+const CorrectIcon = process.env.PUBLIC_URL + '/correct.svg'
 
 const ProjectInfo = props => {
     const { id, created_at, title, goal,description, team, platform, contacts  } = props;
@@ -25,16 +26,16 @@ const ProjectInfo = props => {
                     </tr>
                     </thead>
                     <tbody>
-                    {platformArray.map (platform => (
-                        <PlatformTableRow platform={platform} />
+                    {platformArray.map ((platform, index) => (
+                        <PlatformTableRow platform={platform} key={index} />
                     ))}
                     </tbody>
                 </Table>
 
                 <h2>Developers</h2>
                 <ul>
-                {teamArray.map( teamMember => (
-                    <li>{teamMember}</li>
+                {teamArray.map( (teamMember, index) => (
+                    <li key={index}>{teamMember}</li>
                 ))
                 }
                 </ul>

@@ -1,5 +1,6 @@
 import React from "react";
-import CorrectIcon from "./correct.svg"
+
+const CorrectIcon = process.env.PUBLIC_URL + '/correct.svg'
 
 export default class NewsAll extends React.Component {
     render() {

@@ -2,10 +2,6 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Container from "react-bootstrap/Container";
-// import Col from 'react-bootstrap/Col'
-// import Row from 'react-bootstrap/Row'
-// import Sidebar from './components/Sidebar';
-import Content from "./components/Content";
 import VideoUpload from "./components/VideoUpload";
 
 import Error404 from "./components/Error404";
@@ -21,11 +17,9 @@ const App = () => (
   <Router>
     <div>
       <Header />
-      {/* <Sidebar /> */}
       <Container>
         <Switch>
           <Route exact path="/" component={ProjectCardGroupAll} />
-          <Route exact path="/content" component={Content} />
           <Route exact path="/upload" component={VideoUpload} />
           <Route exact path="/signin" component={SignIn} />
           <Route exact path="/signup" component={SignUp} />

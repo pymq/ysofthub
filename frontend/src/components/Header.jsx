@@ -6,9 +6,8 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import FormControl from "react-bootstrap/FormControl";
 import { Link } from "react-router-dom";
-import NavItem from "react-bootstrap/NavItem";
 
-import logo from "./Logo.png";
+const logo = process.env.PUBLIC_URL + '/Logo.png'
 
 export default class Header extends React.Component {
   constructor(props) {
@@ -28,8 +27,8 @@ export default class Header extends React.Component {
     }
   }
 
-//TODO Рабочий поиск
-//TODO Выход из системы
+  //TODO Рабочий поиск
+  //TODO Выход из системы
 
   render() {
     return (
@@ -38,7 +37,7 @@ export default class Header extends React.Component {
           {/* <Navbar bg="dark" variant="dark" sticky="top"> */}
           {/* <Navbar.Toggle aria-controls="basic-navbar-nav" label="lolo" className="navbar-toggler-icon"> lala</Navbar.Toggle> */}
           <Nav className="mr-auto">
-          <Navbar.Brand as={Link} href="/" to="/"><img width={100} src={logo}/></Navbar.Brand>
+            <Navbar.Brand as={Link} href="/" to="/"><img width={100} src={logo} /></Navbar.Brand>
           </Nav>
 
 

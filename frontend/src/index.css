@@ -103,10 +103,12 @@
 .projectPageLogoWrapper{
     float: left;
     display: block;
-    border: 15px solid black;
+    max-width: 30rem;
+    border: 0.1rem solid black;
 }
 .projectPageLogoWrapper img{
     /*margin: 15px;*/
+    max-width: 100%;
 }
 
 .projectPageContentWrapper{

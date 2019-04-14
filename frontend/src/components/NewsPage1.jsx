@@ -60,38 +60,7 @@ export default class NewsPage1 extends React.Component {
         };
     */
 
-    onSelect = e =>{
-        switch(e) {
-            case 'Project':
-
-                break;
-
-            case 'News':
-
-                break;
-
-            case 'Path_Notes':
-
-                break;
-
-            case 'Documentation':
-
-                break;
-
-            case 'Contacts':
-
-                break;
-
-            case 'Download':
-
-                break;
-        }
-    };
-
     render() {
-
-
-
         return (
             <div style={{ marginTop: "4.5rem" }}>
                 <div className={'projectPageLogoWrapper'}>
@@ -107,7 +76,7 @@ export default class NewsPage1 extends React.Component {
                             <Nav.Link eventKey="News" as={Link} href={`/projects/${this.state.projectId}/news`} to={`/projects/${this.state.projectId}/news`}>News</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link eventKey="Path_Notes">Path Notes</Nav.Link>
+                            <Nav.Link eventKey="Issues">Issues</Nav.Link>
                         </Nav.Item>
 
                         <Nav.Item>

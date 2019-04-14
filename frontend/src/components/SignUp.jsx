@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 import { Redirect } from 'react-router';
 
 import Card from "react-bootstrap/Card";
-import Nav from "./Header";
 
 class SignUp extends React.Component {
   constructor() {
