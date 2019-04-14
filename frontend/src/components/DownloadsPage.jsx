@@ -6,39 +6,24 @@ import { Link } from "react-router-dom";
 import ProjectHeader from "./ProjectHeader";
 
 
-export default class ProjectPage extends React.Component {
+export default class DownloadsPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             projectId: this.props.match.params.id,
-            project: null,
-            comments: [],
-            commentMessage: "",
+            programs: [],
         };
-        console.log(this.state.projectId)
     }
 
     componentDidMount() {
-        // console.log("match:", this.props.match); //! REMOVE
         axios
-            .get(`/api/projects/${this.state.projectId}`)
+            .get(`/api/projects/${this.state.projectId}/programs/`)
             .then(response => {
-                console.log("projects", response.data);  //! REMOVE
-                this.setState({ project: response.data });
+                this.setState({ programs: response.data });
             });
     }
 
     /*
-        downloadComments = () => {
-            axios
-                .get(`/api/videos/${this.state.projectId}/comments/`)
-                .then(response => {
-                    // console.log("video", response.data);  //! REMOVE
-                    this.setState({ comments: response.data });
-                });
-    
-        }
-    
         onSubmitComment = e => {
             e.preventDefault();
             const { commentMessage } = this.state;
@@ -62,13 +47,14 @@ export default class ProjectPage extends React.Component {
 
     render() {
         let innerComponent = (
-            <ProjectInfo {...this.state.project}>
+            <div>
+            downloads
+            </div>
 
-            </ProjectInfo>
         )
         return (
             <div style={{ marginTop: "4.5rem" }}>
-                <ProjectHeader defaultActiveKey={"Project"} projectId={this.state.projectId} innerComponent={innerComponent} />
+                <ProjectHeader defaultActiveKey={"Downloads"} projectId={this.state.projectId} innerComponent={innerComponent}/>
             </div>
         );
     }

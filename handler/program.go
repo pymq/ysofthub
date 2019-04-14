@@ -15,7 +15,7 @@ import (
 func (h *Handler) GetProgramsByProjectId(c echo.Context) (err error) {
 	projectId := c.Param("projectId")
 	var results []model.Program
-	h.DB.Table("programs").Select("version, description, project_id").Where("project_id = ?", projectId).Scan(&results)
+	h.DB.Table("programs").Select("id, version, description, project_id").Where("project_id = ?", projectId).Scan(&results)
 	return c.JSON(http.StatusOK, results)
 }
 

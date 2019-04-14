@@ -5,6 +5,7 @@ import NewsAll from './NewsAll'
 import NewsCreateNew from './NewsCreateNew'
 import Button from 'react-bootstrap/Button'
 import {Link} from "react-router-dom";
+import ProjectHeader from "./ProjectHeader";
 
 
 export default class NewsPage1 extends React.Component {
@@ -12,7 +13,6 @@ export default class NewsPage1 extends React.Component {
         super(props);
         this.state = {
             projectId: this.props.match.params.id,
-            project: null,
             comments: [],
             commentMessage: "",
         };
@@ -21,12 +21,12 @@ export default class NewsPage1 extends React.Component {
 
     componentDidMount() {
         // console.log("match:", this.props.match); //! REMOVE
-        axios
-            .get(`/api/projects/${this.state.projectId}`)
-            .then(response => {
-                console.log("projects", response.data);  //! REMOVE
-                this.setState({ project: response.data });
-            });
+        // axios
+        //     .get(`/api/projects/${this.state.projectId}`)
+        //     .then(response => {
+        //         console.log("projects", response.data);  //! REMOVE
+        //         this.setState({ project: response.data });
+        //     });
     }
 
     /*
@@ -61,36 +61,13 @@ export default class NewsPage1 extends React.Component {
     */
 
     render() {
+        let innerComponent = (
+            // TODO
+            <div>news</div>
+        )
         return (
             <div style={{ marginTop: "4.5rem" }}>
-                <div className={'projectPageLogoWrapper'}>
-                    <img src={`/api/projects/${this.state.projectId}/logo.png`}></img>
-                </div>
-                <div className={'projectPageContentWrapper'}>
-                    <Nav fill variant="tabs" defaultActiveKey="News">
-                        <Nav.Item >
-                            <Nav.Link  eventKey="Project" as={Link} href={`/projects/${this.state.projectId}/`} to={`/projects/${this.state.projectId}/`}>Project</Nav.Link>
-                        </Nav.Item>
-
-                        <Nav.Item>
-                            <Nav.Link eventKey="News" as={Link} href={`/projects/${this.state.projectId}/news`} to={`/projects/${this.state.projectId}/news`}>News</Nav.Link>
-                        </Nav.Item>
-                        <Nav.Item>
-                            <Nav.Link eventKey="Issues">Issues</Nav.Link>
-                        </Nav.Item>
-
-                        <Nav.Item>
-                            <Nav.Link eventKey="Contacts">Contacts</Nav.Link>
-                        </Nav.Item>
-
-                        <Nav.Item>
-                            <Nav.Link eventKey="Download">Download</Nav.Link>
-                        </Nav.Item>
-                    </Nav>
-
-                    <div>
-                    </div>
-                </div>
+                <ProjectHeader defaultActiveKey={"News"} projectId={this.state.projectId} innerComponent={innerComponent} />
             </div>
         );
     }

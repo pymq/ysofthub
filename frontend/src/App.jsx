@@ -12,6 +12,7 @@ import UserVideo from "./components/UserVideo";
 import NewsPage1 from "./components/NewsPage1";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
+import DownloadsPage from "./components/DownloadsPage";
 
 const App = () => (
   <Router>
@@ -25,6 +26,7 @@ const App = () => (
           <Route exact path="/signup" component={SignUp} />
           {/* <Route path="/about" component={About} /> */}
           <Route path="/projects/:id/news" component={NewsPage1} />
+          <Route path="/projects/:id/downloads" component={DownloadsPage} />
           <Route path="/projects/:id" component={ProjectPage} />
           <Route path="/channel/:username" component={UserVideo} />
           <Route component={Error404} />
