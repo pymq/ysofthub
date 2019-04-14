@@ -1,4 +1,4 @@
-module github.com/pymq/gatox
+module github.com/pymq/ysofthub
 
 go 1.12
 

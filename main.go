@@ -3,8 +3,8 @@ package main
 import (
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
-	"github.com/pymq/gatox/db"
-	"github.com/pymq/gatox/handler"
+	"github.com/pymq/ysofthub/db"
+	"github.com/pymq/ysofthub/handler"
 	"github.com/spf13/viper"
 	"golang.org/x/crypto/acme/autocert"
 	"log"

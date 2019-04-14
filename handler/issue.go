@@ -2,8 +2,8 @@ package handler
 
 import (
 	"github.com/labstack/echo/v4"
-	"github.com/pymq/gatox/model"
-	"github.com/pymq/gatox/utils"
+	"github.com/pymq/ysofthub/model"
+	"github.com/pymq/ysofthub/utils"
 	"log"
 	"net/http"
 	"strconv"
