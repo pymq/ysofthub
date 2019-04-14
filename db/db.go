@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/sqlite"
-	"github.com/pymq/gatox/model"
+	"github.com/pymq/ysofthub/model"
 )
 
 func New(logMode bool) *gorm.DB {
