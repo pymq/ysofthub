@@ -99,3 +99,22 @@
     width: 55rem;
     height: 31rem;
 }
+
+.projectPageLogoWrapper{
+    float: left;
+    display: block;
+    border: 15px solid black;
+}
+.projectPageLogoWrapper img{
+    /*margin: 15px;*/
+}
+
+.projectPageContentWrapper{
+    float: left;
+    display: block;
+    margin-left: 50px;
+}
+
+.goal_text{
+    font-style: italic
+}

@@ -7,6 +7,7 @@ const ProjectCard = props => {
   const { id, created_at, title, goal,description, team, platform, contacts  } = props;
   const date = new Date(Date.parse(created_at));
 
+
   const descriptionLength = 100;
 
     return (
@@ -27,7 +28,7 @@ const ProjectCard = props => {
 
         <Card.Text>
           {/* {description} */}
-          {description.substring(0, descriptionLength)}
+          {description.substring(0, descriptionLength)}...
           {/* <small className="text-muted mr-3">{user}</small> */}
         </Card.Text>
 
