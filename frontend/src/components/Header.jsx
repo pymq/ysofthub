@@ -27,8 +27,10 @@ export default class Header extends React.Component {
     }
   }
 
-  //TODO Рабочий поиск
-  //TODO Выход из системы
+  logout = (e) => {
+    localStorage.clear();
+    this.setState({ isLoggedIn: false });
+  }
 
   render() {
     return (
@@ -38,12 +40,15 @@ export default class Header extends React.Component {
             <Navbar.Brand as={Link} href="/" to="/"><img width={100} src={logo} alt="" /></Navbar.Brand>
           </Nav>
 
-          <Button as={Link} href="/project" to="/project" variant="outline-info" className="ml-sm-3">
-            Create project
-          </Button>
           {this.state.isLoggedIn ? (
             <Nav>
+              <Button as={Link} href="/project" to="/project" variant="outline-info" className="ml-sm-3">
+                Create project
+              </Button>
               <Nav.Link as={Link} href={`/channel/${this.state.username}`} to={`/channel/${this.state.username}`} className="active" >{this.state.username}</Nav.Link>
+              <Button variant="outline-info" onClick={this.logout}>
+                Logout
+              </Button>
             </Nav>) : (
               <Button as={Link} href="/signin" to="/signin" variant="outline-info" className="ml-sm-3">
                 Sign in
