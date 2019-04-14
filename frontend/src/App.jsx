@@ -11,7 +11,7 @@ import ProjectCardGroupAll from "./components/ProjectCardGroupAll";
 import NewsPage1 from "./components/NewsPage1";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
-import DownloadsPage from "./components/DownloadsPage";
+import IssuesPage from "./components/IssuesPage";
 
 const App = () => (
   <Router>
@@ -24,8 +24,8 @@ const App = () => (
           <Route exact path="/signin" component={SignIn} />
           <Route exact path="/signup" component={SignUp} />
           {/* <Route path="/about" component={About} /> */}
+          <Route path="/projects/:id/issues" component={IssuesPage} />
           <Route path="/projects/:id/news" component={NewsPage1} />
-          <Route path="/projects/:id/downloads" component={DownloadsPage} />
           <Route path="/projects/:id" component={ProjectPage} />
           <Route path="/project" component={ProjectCreate} />
           <Route component={Error404} />

@@ -19,7 +19,7 @@ export default class ProjectHeader extends React.Component {
                             <Nav.Link eventKey="News" as={Link} href={`/projects/${this.props.projectId}/news`} to={`/projects/${this.props.projectId}/news`}>News</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link eventKey="Issues">Issues</Nav.Link>
+                            <Nav.Link eventKey="Issues" as={Link} href={`/projects/${this.props.projectId}/issues`} to={`/projects/${this.props.projectId}/issues`}>Issues</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
                             <Nav.Link eventKey="Downloads" as={Link} href={`/projects/${this.props.projectId}/downloads`} to={`/projects/${this.props.projectId}/downloads`}>Downloads</Nav.Link>

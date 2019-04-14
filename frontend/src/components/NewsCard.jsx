@@ -2,7 +2,7 @@ import React from "react";
 
 import Card from "react-bootstrap/Card";
 
-const ProjectCard = props => {
+const NewsCard = props => {
     const { created_at, title, content } = props;
     const date = new Date(Date.parse(created_at));
 
@@ -32,4 +32,4 @@ const ProjectCard = props => {
     );
 };
 
-export default ProjectCard;
+export default NewsCard;
