@@ -2,17 +2,18 @@ import React from "react";
 import Table from "react-bootstrap/Table"
 import PlatformTableRow from "./PlatformTableRow";
 
-const CorrectIcon = process.env.PUBLIC_URL + '/correct.svg'
 
 const ProjectInfo = props => {
-    const { id, created_at, title, goal, description, team, platform, contacts } = props;
-    const re = /\s+|\s*\;\s*|\s*\,\s*/;
+    const { created_at, title, goal, description, team, platform, contacts } = props;
+    const re = /\s+|\s*;\s*|\s*,\s*/;
     const platformArray = String(platform).split(re);
     const teamArray = String(team).split(re);
+    const date = new Date(Date.parse(created_at));
     return (
         <div>
             <h1>{title}</h1>
             <span className={"goal_text mb-2 text-muted"}>"{goal}"</span>
+            <div className={"mb-2"}>Founded {date.toDateString()}</div>
 
             <h2>Description</h2>
             <div style={{ whiteSpace: "pre-wrap", wordWrap: "break-word" }}>
@@ -41,6 +42,10 @@ const ProjectInfo = props => {
                 ))
                 }
             </ul>
+            <h2>Contacts</h2>
+            <div style={{ whiteSpace: "pre-wrap", wordWrap: "break-word" }}>
+                {contacts}
+            </div>
         </div>
     );
 };

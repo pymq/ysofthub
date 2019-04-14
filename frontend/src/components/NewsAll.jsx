@@ -3,9 +3,6 @@ import axios from "axios";
 
 import NewsCard from './NewsCard'
 
-const CorrectIcon = process.env.PUBLIC_URL + '/correct.svg';
-
-
 
 export default class NewsAll extends React.Component {
     constructor(props) {
