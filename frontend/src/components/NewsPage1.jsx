@@ -14,19 +14,9 @@ export default class NewsPage1 extends React.Component {
         this.state = {
             projectId: this.props.match.params.id,
             comments: [],
+            project:"",
             commentMessage: "",
         };
-        console.log(this.state.projectId)
-    }
-
-    componentDidMount() {
-        // console.log("match:", this.props.match); //! REMOVE
-        // axios
-        //     .get(`/api/projects/${this.state.projectId}`)
-        //     .then(response => {
-        //         console.log("projects", response.data);  //! REMOVE
-        //         this.setState({ project: response.data });
-        //     });
     }
 
     /*
@@ -62,9 +52,11 @@ export default class NewsPage1 extends React.Component {
 
     render() {
         let innerComponent = (
-            // TODO
-            <div>news</div>
-        )
+            <div>
+            <NewsCreateNew id={this.state.projectId}> </NewsCreateNew>
+            <NewsAll id={this.state.projectId}> </NewsAll>
+            </div>
+        );
         return (
             <div style={{ marginTop: "4.5rem" }}>
                 <ProjectHeader defaultActiveKey={"News"} projectId={this.state.projectId} innerComponent={innerComponent} />

@@ -1,20 +1,20 @@
-/*import React from "react";
+import React from "react";
 import axios from "axios";
 import Form from 'react-bootstrap/Form'
 import NewsAll from './NewsAll'
 import NewsCreateNew from './NewsCreateNew'
 import Button from 'react-bootstrap/Button'
 import {Link} from "react-router-dom";
-import Card from "./SignIn";
+import Card from "react-bootstrap/Card";
 
 
 export default class NewsPage1 extends React.Component {
     constructor() {
         super();
         this.state = {
-            username: "",
-            email: "",
-            text: "",
+            title: "",
+            description: "",
+            email:"",
             result: ""
         };
     }
@@ -28,20 +28,18 @@ export default class NewsPage1 extends React.Component {
 
     onSubmit = e => {
         e.preventDefault();
-        const { username, email, password} = this.state;
+        const { title, description, email} = this.state;
 
         let formData = new FormData();
-        formData.append("username", username);
+        formData.append("title", title);
+        formData.append("content", description);
         formData.append("email", email);
-        formData.append("password", password);
 
-        axios.post('/api/projects/${id}/news', formData).then(result => {
+        axios.post(`/api/projects/${this.props.id}/news/`, formData,{
+            headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
+        }).then(result => {
             console.log(result); //! REMOVE
             if (result.status === 201) {
-                localStorage.setItem("token", result.data.token);
-                localStorage.setItem("username", result.data.username);
-                localStorage.setItem("email", result.data.email);
-                localStorage.setItem("id", result.data.id); //? REMOVE
                 this.setState({result:true});
             } else {
                 alert("Не удалось зарегистрироваться"); //! TODO
@@ -52,12 +50,15 @@ export default class NewsPage1 extends React.Component {
     };
 
     render () {
-
+        const {title,description,email} = this.state;
      return (
-         <Card style={{ width: "30rem" }}>
+
+
+         <Card style={{ width: "30rem", marginTop: "3rem", marginBottom: "3rem"}}>
+             {this.state.result===true ? <div align="center" className="text-success">Added</div>:""}
              <Card.Body>
                  <Card.Title as="h3" className="mb-2">
-                     Sign in
+                     Create News
                  </Card.Title>
                  <Card.Text as="div">
                      <Form method="post" onSubmit={this.onSubmit}>
@@ -65,21 +66,21 @@ export default class NewsPage1 extends React.Component {
                              <Form.Label>Title:</Form.Label>
                              <Form.Control
                                  type="text"
-                                 name="username"
-                                 value={username}
+                                 name="title"
+                                 value={title}
                                  onChange={this.onChange}
                                  placeholder="Enter username"
                              />
                          </Form.Group>
 
                          <Form.Group controlId="formBasicPassword">
-                             <Form.Label>content:</Form.Label>
+                             <Form.Label>Content:</Form.Label>
                              <Form.Control
-                                 type="password"
-                                 name="password"
-                                 value={password}
+                                 as="textarea" rows="3"
+                                 name="description"
+                                 value={description}
                                  onChange={this.onChange}
-                                 placeholder="Password"
+                                 placeholder="Content"
                              />
                          </Form.Group>
 
@@ -99,11 +100,7 @@ export default class NewsPage1 extends React.Component {
                      </Form>
                  </Card.Text>
              </Card.Body>
-             <Card.Footer className="text-muted text-center">
-                 New to Otioki? <Link to="/signup">Sign up</Link>
-             </Card.Footer>
          </Card>
      );
  }
 }
-*/
