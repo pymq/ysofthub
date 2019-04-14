@@ -1,10 +1,6 @@
 import React from "react";
-import axios from "axios";
-import Nav from 'react-bootstrap/Nav'
 import NewsAll from './NewsAll'
 import NewsCreateNew from './NewsCreateNew'
-import Button from 'react-bootstrap/Button'
-import {Link} from "react-router-dom";
 import ProjectHeader from "./ProjectHeader";
 
 
@@ -18,37 +14,6 @@ export default class NewsPage1 extends React.Component {
             commentMessage: "",
         };
     }
-
-    /*
-        downloadComments = () => {
-            axios
-                .get(`/api/videos/${this.state.projectId}/comments/`)
-                .then(response => {
-                    // console.log("video", response.data);  //! REMOVE
-                    this.setState({ comments: response.data });
-                });
-
-        }
-
-        onSubmitComment = e => {
-            e.preventDefault();
-            const { commentMessage } = this.state;
-
-            let formData = new FormData();
-            formData.append("message", commentMessage);
-
-            axios
-                .post(`/api/videos/${this.state.projectId}/comments/`, formData, {
-                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
-                })
-                .then(result => {
-                    // TODO
-                    console.log(result);
-                    this.downloadComments();
-                    this.setState({ commentMessage: "" });
-                });
-        };
-    */
 
     render() {
         let innerComponent = (

@@ -1,12 +1,3 @@
-.SideNav {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 3.5rem;
-    z-index: 1000;
-    height: calc(100vh - 3rem);
-    background-color: #f7f7f7;
-    border-right: 1px solid #ececec;
-}
 
 .card-columns {
     /*
@@ -105,6 +96,8 @@
     display: block;
     max-width: 30rem;
     border: 0.1rem solid black;
+    margin-right: 50px;
+    margin-bottom: 50px;
 }
 .projectPageLogoWrapper img{
     /*margin: 15px;*/
@@ -114,7 +107,7 @@
 .projectPageContentWrapper{
     float: left;
     display: block;
-    margin-left: 50px;
+    max-width: 30rem;
 }
 
 .goal_text{

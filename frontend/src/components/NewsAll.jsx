@@ -3,9 +3,6 @@ import axios from "axios";
 
 import NewsCard from './NewsCard'
 
-const CorrectIcon = process.env.PUBLIC_URL + '/correct.svg';
-
-
 
 export default class NewsAll extends React.Component {
     constructor(props) {
@@ -18,11 +15,9 @@ export default class NewsAll extends React.Component {
     }
 
     componentDidMount() {
-        // console.log("match:", this.props.match); //! REMOVE
         axios
             .get(`/api/projects/${this.state.projectId}/news/`)
             .then(response => {
-                console.log("projects", response.data);  //! REMOVE
                 this.setState({ news: response.data });
             });
     }

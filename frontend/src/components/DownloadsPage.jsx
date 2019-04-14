@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import ProjectHeader from "./ProjectHeader";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -129,7 +128,8 @@ export default class DownloadsPage extends React.Component {
                                     </div>
                                 </div>
                                 <Button type="submit">Submit</Button>
-                            </Form>                        </Card.Text>
+                            </Form>
+                        </Card.Text>
                     </Card.Body>
                 </Card>
 
@@ -141,7 +141,7 @@ export default class DownloadsPage extends React.Component {
                     return (
                         <div key={program.id} className="py-1">
                             <h2>{program.version}</h2><span className="text-muted">{date.toLocaleString()}</span>
-                            <div style={{ whiteSpace: "pre" }}>{program.description}</div>
+                            <div style={{ whiteSpace: "pre-wrap", wordWrap: "break-word" }}>{program.description}</div>
                             <h4>Download:</h4>
                             <ul>
                                 <li><a href={`/api/projects/${program.project_id}/programs/${program.id}/program`}>Program</a></li>

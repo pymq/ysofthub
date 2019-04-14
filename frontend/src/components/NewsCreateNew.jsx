@@ -1,10 +1,7 @@
 import React from "react";
 import axios from "axios";
 import Form from 'react-bootstrap/Form'
-import NewsAll from './NewsAll'
-import NewsCreateNew from './NewsCreateNew'
 import Button from 'react-bootstrap/Button'
-import {Link} from "react-router-dom";
 import Card from "react-bootstrap/Card";
 
 

@@ -2,8 +2,8 @@ import React from "react";
 
 import Card from "react-bootstrap/Card";
 
-const IssueCard = props => {
-    const { id, created_at, title, content } = props;
+const ProjectCard = props => {
+    const { created_at, title, content } = props;
     const date = new Date(Date.parse(created_at));
 
     return (
@@ -20,7 +20,7 @@ const IssueCard = props => {
                     {date.toLocaleString()}
                 </Card.Subtitle>
 
-                <Card.Text style={{ whiteSpace: "pre" }}>
+                <Card.Text style={{ whiteSpace: "pre-wrap", wordWrap: "break-word" }}>
                     {/* {description} */}
                     {content}...
                     {/* <small className="text-muted mr-3">{user}</small> */}

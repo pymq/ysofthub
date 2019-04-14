@@ -37,7 +37,7 @@ export default class Header extends React.Component {
           {/* <Navbar bg="dark" variant="dark" sticky="top"> */}
           {/* <Navbar.Toggle aria-controls="basic-navbar-nav" label="lolo" className="navbar-toggler-icon"> lala</Navbar.Toggle> */}
           <Nav className="mr-auto">
-            <Navbar.Brand as={Link} href="/" to="/"><img width={100} src={logo} /></Navbar.Brand>
+            <Navbar.Brand as={Link} href="/" to="/"><img width={100} src={logo} alt="" /></Navbar.Brand>
           </Nav>
 
           <Button as={Link} href="/project" to="/project" variant="outline-info" className="ml-sm-3">
@@ -45,7 +45,7 @@ export default class Header extends React.Component {
           </Button>
 
           <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-3" />
+            <FormControl type="text" placeholder="Search" className="mx-3" />
             <Button variant="outline-info">Search</Button>
           </Form>
           {this.state.isLoggedIn ? (

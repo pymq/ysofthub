@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 
 const ProjectCard = props => {
-  const { id, created_at, title, goal,description, team, platform, contacts  } = props;
+  const { id, created_at, title, description, platform } = props;
   const date = new Date(Date.parse(created_at));
 
 
   const descriptionLength = 100;
 
-    return (
+  return (
     <Card>
       <Link to={`projects/${id}/`}>
         <Card.Img variant="top" src={`/api/projects/${id}/logo.png`} />
@@ -23,7 +23,7 @@ const ProjectCard = props => {
         </Card.Title>
 
         <Card.Subtitle className="mb-2 text-muted">
-            Platforms : {platform}
+          Platforms : {platform}
         </Card.Subtitle>
 
         <Card.Text>
