@@ -24,7 +24,6 @@ class ProjectCreate extends React.Component {
 
   onChangeFile = e => {
     this.setState({ logoFile: e.target.files[0] });
-    console.log("ПОМЕНЯЛИ");
   };
 
   onSubmit = e => {
@@ -80,44 +79,44 @@ class ProjectCreate extends React.Component {
           <Form.Group controlId="exampleForm.ControlTextarea1">
             <Form.Label>Goal</Form.Label>
             <Form.Control
-                name="goal"
-                type="text"
-                value={goal}
-                placeholder="Goal"
-                onChange={this.onChange}
+              name="goal"
+              type="text"
+              value={goal}
+              placeholder="Goal"
+              onChange={this.onChange}
             />
           </Form.Group>
 
           <Form.Group controlId="exampleForm.ControlTextarea1">
             <Form.Label>Team</Form.Label>
             <Form.Control
-                name="team"
-                value={team}
-                as="textarea"
-                rows="7"
-                onChange={this.onChange}
+              name="team"
+              value={team}
+              as="textarea"
+              rows="7"
+              onChange={this.onChange}
             />
           </Form.Group>
 
           <Form.Group controlId="exampleForm.ControlTextarea1">
             <Form.Label>Platform</Form.Label>
             <Form.Control
-                name="platform"
-                type="text"
-                value={platform}
-                placeholder="Platform"
-                onChange={this.onChange}
+              name="platform"
+              type="text"
+              value={platform}
+              placeholder="Platform"
+              onChange={this.onChange}
             />
           </Form.Group>
 
           <Form.Group controlId="exampleForm.ControlTextarea1">
             <Form.Label>Contacts</Form.Label>
             <Form.Control
-                name="contacts"
-                value={contacts}
-                as="textarea"
-                rows="3"
-                onChange={this.onChange}
+              name="contacts"
+              value={contacts}
+              as="textarea"
+              rows="3"
+              onChange={this.onChange}
             />
           </Form.Group>
 
@@ -126,13 +125,12 @@ class ProjectCreate extends React.Component {
               <input
                 type="file"
                 name="logoFile"
-                // value={videoFile}
                 className="custom-file-input"
                 id="customFile"
                 onChange={this.onChangeFile}
               />
               <label className="custom-file-label" htmlFor="customFile">
-                Choose file...
+                {logoFile.name || "Choose png logo file..."}
               </label>
             </div>
           </div>

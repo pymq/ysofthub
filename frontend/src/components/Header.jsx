@@ -45,7 +45,7 @@ export default class Header extends React.Component {
           </Button>
 
           <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-3" />
+            <FormControl type="text" placeholder="Search" className="mx-3" />
             <Button variant="outline-info">Search</Button>
           </Form>
           {this.state.isLoggedIn ? (

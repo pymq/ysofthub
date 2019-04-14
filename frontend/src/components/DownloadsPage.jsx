@@ -129,7 +129,8 @@ export default class DownloadsPage extends React.Component {
                                     </div>
                                 </div>
                                 <Button type="submit">Submit</Button>
-                            </Form>                        </Card.Text>
+                            </Form>
+                        </Card.Text>
                     </Card.Body>
                 </Card>
 
