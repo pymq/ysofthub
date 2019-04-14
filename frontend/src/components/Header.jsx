@@ -40,6 +40,9 @@ export default class Header extends React.Component {
             <Navbar.Brand as={Link} href="/" to="/"><img width={100} src={logo} /></Navbar.Brand>
           </Nav>
 
+          <Button as={Link} href="/project" to="/project" variant="outline-info" className="ml-sm-3">
+            Create project
+          </Button>
 
           <Form inline>
             <FormControl type="text" placeholder="Search" className="mr-sm-3" />
