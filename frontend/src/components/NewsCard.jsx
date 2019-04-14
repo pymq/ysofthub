@@ -20,7 +20,7 @@ const ProjectCard = props => {
                     {date.toLocaleString()}
                 </Card.Subtitle>
 
-                <Card.Text>
+                <Card.Text style={{ whiteSpace: "pre" }}>
                     {/* {description} */}
                     {content}...
                     {/* <small className="text-muted mr-3">{user}</small> */}

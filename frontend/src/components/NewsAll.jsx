@@ -12,7 +12,7 @@ export default class NewsAll extends React.Component {
         super(props);
         this.state = {
             projectId: this.props.id,
-            news: null,
+            news: [],
         };
         console.log(this.state.projectId)
     }
@@ -29,13 +29,9 @@ export default class NewsAll extends React.Component {
     render() {
         return (
             <div>
-            {this.state.news!=null&&this.state.news!==undefined ?
-        <div>
-            {this.state.news.map(news => (
-                <NewsCard key={news.id} {...news} />
-            ))}
-        </div> : ""
-            }
+                {this.state.news.reverse().map(news => (
+                    <NewsCard key={news.id} {...news} />
+                ))}
             </div>
         );
     }

@@ -14,7 +14,6 @@ export default class NewsPage1 extends React.Component {
         this.state = {
             title: "",
             description: "",
-            email:"",
             result: ""
         };
     }
@@ -28,29 +27,26 @@ export default class NewsPage1 extends React.Component {
 
     onSubmit = e => {
         e.preventDefault();
-        const { title, description, email} = this.state;
+        const { title, description} = this.state;
 
         let formData = new FormData();
         formData.append("title", title);
         formData.append("content", description);
-        formData.append("email", email);
 
         axios.post(`/api/projects/${this.props.id}/news/`, formData,{
             headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
         }).then(result => {
-            console.log(result); //! REMOVE
             if (result.status === 201) {
                 this.setState({result:true});
+                this.setState({ title: "", description: "", });
             } else {
-                alert("Не удалось зарегистрироваться"); //! TODO
-                console.log("result");
                 this.setState({result:false});
             }
         });
     };
 
     render () {
-        const {title,description,email} = this.state;
+        const {title,description} = this.state;
      return (
 
 
@@ -58,7 +54,7 @@ export default class NewsPage1 extends React.Component {
              {this.state.result===true ? <div align="center" className="text-success">Added</div>:""}
              <Card.Body>
                  <Card.Title as="h3" className="mb-2">
-                     Create News
+                     Post News
                  </Card.Title>
                  <Card.Text as="div">
                      <Form method="post" onSubmit={this.onSubmit}>
@@ -69,29 +65,18 @@ export default class NewsPage1 extends React.Component {
                                  name="title"
                                  value={title}
                                  onChange={this.onChange}
-                                 placeholder="Enter username"
+                                 placeholder="Enter title"
                              />
                          </Form.Group>
 
                          <Form.Group controlId="formBasicPassword">
                              <Form.Label>Content:</Form.Label>
                              <Form.Control
-                                 as="textarea" rows="3"
+                                 as="textarea" rows="5"
                                  name="description"
                                  value={description}
                                  onChange={this.onChange}
-                                 placeholder="Content"
-                             />
-                         </Form.Group>
-
-                         <Form.Group controlId="formBasicEmail">
-                             <Form.Label>Email address:</Form.Label>
-                             <Form.Control
-                                 type="email"
-                                 name="email"
-                                 value={email}
-                                 onChange={this.onChange}
-                                 placeholder="Enter email"
+                                 placeholder="Enter content"
                              />
                          </Form.Group>
                          <Button variant="primary" type="submit">
