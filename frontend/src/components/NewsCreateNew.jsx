@@ -1,4 +1,4 @@
-import React from "react";
+/*import React from "react";
 import axios from "axios";
 import Form from 'react-bootstrap/Form'
 import NewsAll from './NewsAll'
@@ -106,3 +106,4 @@ export default class NewsPage1 extends React.Component {
      );
  }
 }
+*/
