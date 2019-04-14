@@ -142,7 +142,7 @@ export default class DownloadsPage extends React.Component {
                     return (
                         <div key={program.id} className="py-1">
                             <h2>{program.version}</h2><span className="text-muted">{date.toLocaleString()}</span>
-                            <div style={{ whiteSpace: "pre" }}>{program.description}</div>
+                            <div style={{ whiteSpace: "pre-wrap", wordWrap: "break-word" }}>{program.description}</div>
                             <h4>Download:</h4>
                             <ul>
                                 <li><a href={`/api/projects/${program.project_id}/programs/${program.id}/program`}>Program</a></li>

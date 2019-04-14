@@ -18,11 +18,9 @@ export default class NewsAll extends React.Component {
     }
 
     componentDidMount() {
-        // console.log("match:", this.props.match); //! REMOVE
         axios
             .get(`/api/projects/${this.state.projectId}/news/`)
             .then(response => {
-                console.log("projects", response.data);  //! REMOVE
                 this.setState({ news: response.data });
             });
     }

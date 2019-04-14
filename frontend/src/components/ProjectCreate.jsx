@@ -134,7 +134,7 @@ class ProjectCreate extends React.Component {
               </label>
             </div>
           </div>
-          <Button type="submit">Comment</Button>
+          <Button type="submit">Submit</Button>
         </Form>
       </div>
     );
