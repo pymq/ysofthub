@@ -4,7 +4,7 @@ import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-import { Redirect } from 'react-router';
+
 
 import Card from "react-bootstrap/Card";
 
@@ -54,7 +54,6 @@ class SignUp extends React.Component {
   render() {
     const { username, email, password,result } = this.state;
     if(result === true){
-      return (<Redirect to="/" />);
     }
 
     return (

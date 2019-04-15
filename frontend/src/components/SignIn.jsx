@@ -79,7 +79,7 @@ class SignIn extends React.Component {
             </Card.Text>
           </Card.Body>
           <Card.Footer className="text-muted text-center">
-            New to Otioki? <Link to="/signup">Sign up</Link>
+            New to YSoftHub? <Link to="/signup">Sign up</Link>
           </Card.Footer>
         </Card>
       </div>

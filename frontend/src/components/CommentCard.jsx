@@ -16,7 +16,7 @@ const CommentCard = props => {
                         {userMark}
                     </Card.Subtitle>
 
-                    <Card.Text style={{ whiteSpace: "pre" }}>
+                    <Card.Text style={{ whiteSpace: "pre-wrap", wordWrap: "break-word"  }}>
                         {/* {description} */}
                         {message}...
                         {/* <small className="text-muted mr-3">{user}</small> */}

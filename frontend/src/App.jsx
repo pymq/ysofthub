@@ -13,6 +13,7 @@ import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import IssuesPage from "./components/IssuesPage";
 import DownloadsPage from "./components/DownloadsPage"
+import UserPage from "./components/UserPage"
 
 const App = () => (
   <Router>
@@ -24,6 +25,7 @@ const App = () => (
           <Route exact path="/upload" component={ProjectCreate} />
           <Route exact path="/signin" component={SignIn} />
           <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/user" component={UserPage} />
           {/* <Route path="/about" component={About} /> */}
           <Route path="/projects/:id/issues" component={IssuesPage} />
           <Route path="/projects/:id/news" component={NewsPage1} />

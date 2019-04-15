@@ -48,7 +48,7 @@ export default class IssuesCard extends React.Component {
                         {date.toLocaleString()}
                     </Card.Subtitle>
 
-                    <Card.Text style={{whiteSpace: "pre"}}>
+                    <Card.Text style={{whiteSpace: "pre-wrap", wordWrap: "break-word" }}>
                         {/* {description} */}
                         {description}...
                         {/* <small className="text-muted mr-3">{user}</small> */}

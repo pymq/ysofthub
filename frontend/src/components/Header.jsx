@@ -45,7 +45,7 @@ export default class Header extends React.Component {
               <Button as={Link} href="/project" to="/project" variant="outline-info" className="ml-sm-3">
                 Create project
               </Button>
-              <Nav.Link as={Link} href={`/channel/${this.state.username}`} to={`/channel/${this.state.username}`} className="active" >{this.state.username}</Nav.Link>
+              <Nav.Link as={Link} href={`/user/`} to={`/user/`} className="active" >{this.state.username}</Nav.Link>
               <Button variant="outline-info" onClick={this.logout}>
                 Logout
               </Button>
